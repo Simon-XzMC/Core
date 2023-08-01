@@ -1,0 +1,13 @@
+name: Core
+version: '1.0-SNAPSHOT'
+main: me.simonxz.core.Main
+api-version: '1.18'
+author: Simon_Xz
+depend: [PlayerManager]
+description: Prison core stuff for FastGens
+
+commands:
+  pick:
+    usage: /pick
+  skinset:
+    usage: /skinset

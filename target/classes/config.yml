@@ -1,0 +1,219 @@
+Enchantments:
+  FillEmpty:
+    Item: BLACK_STAINED_GLASS_PANE
+    Name: '&r'
+    Lore: []
+    Glow: false
+  Enchantments:
+    Fortune:
+      Rarity: Common # Common, Uncommon, Rare, Ultimate, Divine (You can add your own rarities, all enchantments with the same rarity are grouped together)
+      Currency: Tokens # Tokens or Crystals
+      Price: 20000 # Price of the enchantment
+      Exponent: 1.1 # Higher the exponent the more expensive the enchantment becomes as you level up.
+      Max: 25000 # Maximum level of this enchantment you can have on your omnitool
+      Proc: '100' # Chance of the enchantment to happen when you break a block
+      GUI_Slot: 10 # The gui slot this enchantment will be in when you view the pickaxe menu
+      GUI_Item: DIAMOND # The display item for this enchantment in the pickaxe menu
+      GUI_Name: '&fFortune' # The display name for this enchantment in the pickaxe menu
+      GUI_Lore: # The description that is used in the display lore for this enchantment in the pickaxe menu
+        - '&7Increase the amount of blocks you '
+        - '&7receive while mining. '
+      GUI_Glow: true # If the display item should glow or not
+      Requirement: 0 # The pickaxe prestige required to upgrade
+    Double_Strike:
+      Rarity: Uncommon
+      Currency: Tokens
+      Price: 25000
+      Exponent: 1.2
+      Max: 20000
+      Proc: '0.01'
+      GUI_Slot: 19
+      GUI_Item: FEATHER
+      GUI_Name: '&fDouble Strike'
+      GUI_Lore:
+        - '&7Chance of mining a nearby block which '
+        - '&7can also proc other enchantments as '
+        - '&7if it was broken normally. '
+      GUI_Glow: true
+      Requirement: 0
+    Slice:
+      Rarity: Uncommon
+      Currency: Tokens
+      Price: 40000
+      Exponent: 1.25
+      Max: 20000
+      Proc: '0.01'
+      GUI_Slot: 28
+      GUI_Item: PAPER
+      GUI_Name: '&fSlice'
+      GUI_Lore:
+        - '&7Slice a vertical 8x8 plane of '
+        - '&7blocks in your mine. '
+      GUI_Glow: true
+      Requirement: 0
+    Key_Finder:
+      Rarity: Rare
+      Currency: Tokens
+      Price: 75000
+      Exponent: 1.3
+      Max: 15000
+      Proc: '0.01'
+      GUI_Slot: 12
+      GUI_Item: TRIPWIRE_HOOK
+      GUI_Name: '&bKey Finder'
+      GUI_Lore:
+        - '&7Find low to mid tier crate keys '
+        - '&7while mining. '
+      GUI_Glow: true
+      Requirement: 1
+    Lightning:
+      Rarity: Rare
+      Currency: Tokens
+      Price: 100000
+      Exponent: 1.35
+      Max: 15000
+      Proc: '0.01'
+      GUI_Slot: 21
+      GUI_Item: BLAZE_ROD
+      GUI_Name: '&bLightning'
+      GUI_Lore:
+        - '&7Call upon the gods for a helping hand '
+        - '&7with mining blocks from lightning '
+        - '&7strikes around your mine '
+      GUI_Glow: true
+      Requirement: 1
+    Treasure_Finder:
+      Rarity: Rare
+      Currency: Tokens
+      Price: 125000
+      Exponent: 1.4
+      Max: 15000
+      Proc: '0.01'
+      GUI_Slot: 30
+      GUI_Item: CHEST
+      GUI_Name: '&bTreasure Finder'
+      GUI_Lore:
+        - '&7Unlike Key Finder this enchantment has '
+        - '&7the ability to find multiple rewards '
+        - '&7and items. '
+      GUI_Glow: true
+      Requirement: 1
+    Jackhammer:
+      Rarity: Ultimate
+      Currency: Tokens
+      Price: 200000
+      Exponent: 1.5
+      Max: 10000
+      Proc: '0.01'
+      GUI_Slot: 14
+      GUI_Item: HOPPER
+      GUI_Name: '&3Jackhammer'
+      GUI_Lore:
+        - '&7Jackhammer has unbelievable power '
+        - '&7that can mine entire layers from '
+        - '&7your mine. '
+      GUI_Glow: true
+      Requirement: 2
+    Explosive:
+      Rarity: Ultimate
+      Currency: Tokens
+      Price: 200000
+      Exponent: 1.5
+      Max: 10000
+      Proc: '0.01'
+      GUI_Slot: 23
+      GUI_Item: TNT
+      GUI_Name: '&3Explosive'
+      GUI_Lore:
+        - '&7Swing your pickaxe with great force '
+        - '&7causing explosions in your mine '
+      GUI_Glow: true
+      Requirement: 2
+    Loyalty:
+      Rarity: Ultimate
+      Currency: Tokens
+      Price: 250000
+      Exponent: 1.75
+      Max: 10000
+      Proc: '0.01'
+      GUI_Slot: 32
+      GUI_Item: TOTEM_OF_UNDYING
+      GUI_Name: '&3Loyalty'
+      GUI_Lore:
+        - '&7Be a team player and help your gang '
+        - '&7find bonus Gang Points while mining. '
+        - '&8(Maximum 500 per hour) '
+      GUI_Glow: true
+      Requirement: 2
+    Nuke:
+      Rarity: Divine
+      Currency: Tokens
+      Price: 300000
+      Exponent: 2.15
+      Max: 5000
+      Proc: '0.01'
+      GUI_Slot: 16
+      GUI_Item: MINECART
+      GUI_Name: '&9Nuke'
+      GUI_Lore:
+        - '&7A nuke is dropped upon your mine '
+        - '&7and breaks all remaining blocks. '
+      GUI_Glow: true
+      Requirement: 3
+    Insanity:
+      Rarity: Divine
+      Currency: Tokens
+      Price: 500000
+      Exponent: 3.5
+      Max: 5000
+      Proc: '0.01'
+      GUI_Slot: 25
+      GUI_Item: BEACON
+      GUI_Name: '&9Insanity'
+      GUI_Lore:
+        - '&7Chance of activating double enchant '
+        - '&7procs for short period of time. '
+      GUI_Glow: true
+      Requirement: 4
+    Blackhole:
+      Rarity: Divine
+      Currency: Tokens
+      Price: 1000000
+      Exponent: 4.75
+      Max: 5000
+      Proc: '0.01'
+      GUI_Slot: 34
+      GUI_Item: BLACK_SHULKER_BOX
+      GUI_Name: '&9Blackhole'
+      GUI_Lore:
+        - '&7Spawn a black hole above your mine '
+        - '&7that sucks in random blocks and sells. '
+        - '&7them for 10x thier value. '
+      GUI_Glow: true
+      Requirement: 5
+  GUI_Upgrade_Lore:
+    - '&7 '
+    - '&7Click here for enchant options '
+    - '&7for &n{enchantment}&7. '
+    - '&7 '
+    - '&b&nEnchantment Description'
+    - '{description}'
+    - '&7 '
+    - '&aPrice &f{price}&8 per level'
+    - '&eLevel &f{current}&8/&7{maxlevel}'
+    - '&7{requirement}'
+Color_Packs:
+  Demonic:
+    1: "&#33FF00" # Main color (Item Name, Enchantments, Statistics)
+    2: "&#33FF00" # Second main color (Level: Prestige: etc)
+    3: "&#33FF00" # Common, uncommon enchants
+    4: "&#33FF00" # Rare enchants
+    5: "&#33FF00" # Ultimate enchants
+    6: "&#33FF00" # Divine enchants
+  Thunder:
+    1: "&#33FF00"
+    2: "&#33FF00"
+    3: "&#33FF00"
+    4: "&#33FF00"
+    5: "&#33FF00"
+    6: "&#33FF00"
