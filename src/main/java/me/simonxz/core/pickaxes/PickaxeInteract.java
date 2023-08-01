@@ -98,8 +98,8 @@ public class PickaxeInteract implements Listener {
         Player p = e.getPlayer();
         ItemStack pickaxe = p.getInventory().getItemInMainHand();
         int level = api.getNBT(pickaxe, "Explosive");
-        Enchants enchant = eManager.getEnchant("Explosive");
         if (level>0) {
+            Enchants enchant = enchants.getEnchant("Explosive");
             if(randomDouble(0, 100) <= level * enchant.getProc()) {
 
                 World world = e.getBlock().getWorld();
