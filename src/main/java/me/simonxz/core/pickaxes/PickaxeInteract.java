@@ -6,6 +6,7 @@ import me.simonxz.core.api.EnchantsManager;
 import me.simonxz.core.enchantments.EAPI;
 import me.simonxz.core.enchantments.PickaxeUpdater;
 import me.simonxz.core.gui.PickaxeMenu;
+import me.simonxz.playermanager.Utils;
 import me.simonxz.playermanager.users.User;
 import org.bukkit.Location;
 import org.bukkit.World;
@@ -62,6 +63,15 @@ public class PickaxeInteract implements Listener {
         api.setNBT(item, "Blocks", api.getNBT(item, "Blocks")+1);
         api.setNBT(item, "XP", api.getNBT(item, "XP")+50);
 
+        for (ItemStack is : e.getBlock().getDrops())
+            e.getPlayer().getInventory().addItem(is);
+        e.getBlock().getDrops().clear();
+
+        if (p.getCanPickupItems() == false) {
+            p.sendTitle("§cInventory is Full!", "§7Sell items in your inventory to collect money!", 1 ,20, 1);
+            e.setCancelled(true);
+        }
+
         if(pickaxeCooldown.get(p) != null && pickaxeCooldown.get(p) > System.currentTimeMillis()) return;
         update.updatePickaxe(item);
 
@@ -92,6 +102,13 @@ public class PickaxeInteract implements Listener {
         if (enchant == null) return;
         if (level>0) {
          if (randomDouble(0, 100) <= level * enchant.getProc()) {
+             for (ItemStack is : e.getBlock().getDrops())
+                 e.getPlayer().getInventory().addItem(is);
+             e.getBlock().getDrops().clear();
+             if (p.getCanPickupItems() == false) {
+                 p.sendTitle("§cInventory is Full!", "§7Sell items in your inventory to collect money!", 1 ,20, 1);
+                 e.setCancelled(true);
+             }
                 World world = e.getBlock().getWorld();
                 Location location = e.getBlock().getLocation();
                 world.createExplosion(location, 10f);
