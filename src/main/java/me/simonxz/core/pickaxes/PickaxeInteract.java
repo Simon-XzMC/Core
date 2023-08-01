@@ -1,15 +1,5 @@
 package me.simonxz.core.pickaxes;
 
-import com.sk89q.worldedit.regions.Region;
-import com.sk89q.worldguard.LocalPlayer;
-import com.sk89q.worldguard.WorldGuard;
-import com.sk89q.worldguard.bukkit.WorldGuardPlugin;
-
-import static com.sk89q.jnbt.NBTUtils.toVector;
-import static com.sk89q.worldguard.bukkit.BukkitUtil.*;
-import static jdk.javadoc.internal.doclets.formats.html.markup.HtmlStyle.block;
-
-import com.sk89q.worldguard.protection.managers.RegionManager;
 import me.simonxz.core.Main;
 import me.simonxz.core.api.Enchants;
 import me.simonxz.core.api.EnchantsManager;
@@ -19,7 +9,7 @@ import me.simonxz.core.gui.PickaxeMenu;
 import me.simonxz.playermanager.users.User;
 import org.bukkit.Location;
 import org.bukkit.World;
-import org.bukkit.configuration.ConfigurationSection;
+import org.bukkit.block.Block;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -94,14 +84,14 @@ public class PickaxeInteract implements Listener {
 
     @EventHandler
     public void Explosive(BlockBreakEvent e) {
-        EnchantsManager enchants = new EnchantsManager();
+        EnchantsManager enchants = plugin.getEnchantManager();
         Player p = e.getPlayer();
         ItemStack pickaxe = p.getInventory().getItemInMainHand();
         int level = api.getNBT(pickaxe, "Explosive");
+        Enchants enchant = enchants.getEnchant("Explosive");
+        if (enchant == null) return;
         if (level>0) {
-            Enchants enchant = enchants.getEnchant("Explosive");
-            if(randomDouble(0, 100) <= level * enchant.getProc()) {
-
+         if (randomDouble(0, 100) <= level * enchant.getProc()) {
                 World world = e.getBlock().getWorld();
                 Location location = e.getBlock().getLocation();
                 world.createExplosion(location, 10f);

@@ -3,7 +3,6 @@ package me.simonxz.core.gui;
 import me.simonxz.core.Main;
 import me.simonxz.core.api.Enchants;
 import me.simonxz.core.enchantments.EAPI;
-import me.simonxz.core.enchantments.EnchantMax;
 import me.simonxz.core.enchantments.EnchantPrice;
 import me.simonxz.core.enchantments.PickaxeUpdater;
 import me.simonxz.core.utils.Utils;
@@ -19,7 +18,6 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
-import org.bukkit.plugin.Plugin;
 import org.bukkit.scheduler.BukkitRunnable;
 public class EnchantUpgradeMenu implements Listener {
 

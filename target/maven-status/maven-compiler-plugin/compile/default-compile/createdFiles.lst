@@ -13,6 +13,7 @@ me\simonxz\core\gui\EnchantUpgradeMenu.class
 me\simonxz\core\gui\CloseInventory.class
 me\simonxz\core\gui\CloseInventory$3.class
 me\simonxz\core\gui\PickaxeMenu.class
+me\simonxz\core\events\DropsToInventoryEvent.class
 me\simonxz\core\gui\PrestigeMenu.class
 me\simonxz\core\gui\EnchantUpgradeMenu$1.class
 me\simonxz\core\utils\Utils.class
