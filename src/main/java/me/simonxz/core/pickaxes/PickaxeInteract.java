@@ -11,11 +11,14 @@ import me.simonxz.playermanager.users.User;
 import org.bukkit.Location;
 import org.bukkit.World;
 import org.bukkit.block.Block;
+import org.bukkit.entity.Entity;
+import org.bukkit.entity.LivingEntity;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.Action;
 import org.bukkit.event.block.BlockBreakEvent;
+import org.bukkit.event.entity.EntityDamageEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.inventory.ItemStack;
 
@@ -65,12 +68,8 @@ public class PickaxeInteract implements Listener {
 
         for (ItemStack is : e.getBlock().getDrops())
             e.getPlayer().getInventory().addItem(is);
+        e.setDropItems(false);
         e.getBlock().getDrops().clear();
-
-        if (p.getCanPickupItems() == false) {
-            p.sendTitle("§cInventory is Full!", "§7Sell items in your inventory to collect money!", 1 ,20, 1);
-            e.setCancelled(true);
-        }
 
         if(pickaxeCooldown.get(p) != null && pickaxeCooldown.get(p) > System.currentTimeMillis()) return;
         update.updatePickaxe(item);
@@ -104,14 +103,43 @@ public class PickaxeInteract implements Listener {
          if (randomDouble(0, 100) <= level * enchant.getProc()) {
              for (ItemStack is : e.getBlock().getDrops())
                  e.getPlayer().getInventory().addItem(is);
+             e.setDropItems(false);
              e.getBlock().getDrops().clear();
-             if (p.getCanPickupItems() == false) {
-                 p.sendTitle("§cInventory is Full!", "§7Sell items in your inventory to collect money!", 1 ,20, 1);
-                 e.setCancelled(true);
-             }
                 World world = e.getBlock().getWorld();
                 Location location = e.getBlock().getLocation();
                 world.createExplosion(location, 10f);
+
+            }
+
+        }
+    }
+
+    @EventHandler
+    public void explosionDamage(EntityDamageEvent e) {
+        if (e.getCause()== EntityDamageEvent.DamageCause.ENTITY_EXPLOSION) {
+            e.setCancelled(true);
+        }
+    }
+
+    @EventHandler
+    public void Fortune(BlockBreakEvent e) {
+        EnchantsManager enchants = plugin.getEnchantManager();
+        Player p = e.getPlayer();
+        ItemStack pickaxe = p.getInventory().getItemInMainHand();
+        int level = api.getNBT(pickaxe, "Fortune");
+        Enchants enchant = enchants.getEnchant("Fortune");
+        if (enchant == null) return;
+        if (level>0) {
+            if (randomDouble(1, 2) <= level * enchant.getProc()) {
+                for (ItemStack is : e.getBlock().getDrops())
+                    e.getPlayer().getInventory().addItem(is);
+                e.setDropItems(false);
+                e.getBlock().getDrops().clear();
+                Collection<ItemStack> drops = e.getBlock().getDrops(pickaxe);
+                if (drops.size() > 1) {
+                    p.sendMessage("You got " + (drops.size() - 1) + " extra items using your tool");
+                }
+
             }
 
         }
