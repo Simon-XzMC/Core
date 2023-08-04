@@ -10,6 +10,7 @@ import org.bukkit.enchantments.Enchantment;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
+import org.bukkit.event.inventory.ClickType;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemFlag;
@@ -24,6 +25,8 @@ public class PickaxeMenu implements Listener {
     EnchantMenu enchantMenu = new EnchantMenu();
 
     PrestigeMenu prestigeMenu = new PrestigeMenu();
+
+    BackpackMenu backpackMenu = new BackpackMenu();
 
     public void pickaxeHub(final Player p) {
         final Inventory inv = Bukkit.createInventory(null, 54, "Pickaxe Menu");
@@ -101,6 +104,8 @@ public class PickaxeMenu implements Listener {
                 this.enchantMenu.enchantMenu(p);
             } else if (clickedItem.getItemMeta().getDisplayName().contains("PRESTIGE")) {
                 this.prestigeMenu.pickaxePrestige(p);
+            } else if (clickedItem.getItemMeta().getDisplayName().contains("BACKPACK")) {
+                this.backpackMenu.BackpackMenu(p);
             }
         }
     }

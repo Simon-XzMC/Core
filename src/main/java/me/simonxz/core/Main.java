@@ -59,7 +59,7 @@ public final class Main extends JavaPlugin {
         getServer().getPluginManager().registerEvents((Listener)new PrestigeMenu(), (Plugin)this);
         getServer().getPluginManager().registerEvents((Listener)new EnchantUpgradeMenu(), (Plugin)this);
         getServer().getPluginManager().registerEvents((Listener)new CloseInventory(), (Plugin)this);
-
+        getServer().getPluginManager().registerEvents((Listener)new BackpackMenu(), (Plugin)this);
     }
 
 

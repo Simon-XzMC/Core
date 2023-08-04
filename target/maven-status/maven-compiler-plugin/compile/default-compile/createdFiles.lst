@@ -8,6 +8,8 @@ me\simonxz\core\gui\EnchantMenu.class
 me\simonxz\core\pickaxes\Prestige.class
 me\simonxz\core\utils\CreatePickaxe.class
 me\simonxz\core\api\EnchantsManager.class
+me\simonxz\core\gui\BackpackMenu.class
+me\simonxz\core\pickaxes\Backpacks.class
 me\simonxz\core\gui\CloseInventory$1.class
 me\simonxz\core\gui\EnchantUpgradeMenu.class
 me\simonxz\core\gui\CloseInventory.class
